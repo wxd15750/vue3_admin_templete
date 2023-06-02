@@ -17,12 +17,15 @@ import gloalComponent from '@/components'
 //svg插件需要配置代码
 import 'virtual:svg-icons-register'
 
+// 清除默认样式
+import '@/styles/index.scss'
+
 const app = createApp(App)
 app.use(ElementPlus, {
   locale: zhCn,
 })
 
-// 全局注册 
+// 全局注册
 // app.component('SvgIcon',SvgIcon)
 // 安装自定义插件
 app.use(gloalComponent)

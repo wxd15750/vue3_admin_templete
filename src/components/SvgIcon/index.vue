@@ -1,40 +1,38 @@
 <template>
-  <svg :style="{width,height}">
+  <svg :style="{ width, height }">
     <use :xlink:href="prefix + name" :fill="color"></use>
   </svg>
 </template>
 <script lang="ts">
-  import { defineComponent } from 'vue';
-  export default defineComponent({
-    name:'SvgIcon'
-  })
+import { defineComponent } from 'vue'
+export default defineComponent({
+  name: 'SvgIcon',
+})
 </script>
 <script lang="ts" setup>
 defineProps({
-  prefix:{
-    type:String,
-    default:'#icon-'
+  prefix: {
+    type: String,
+    default: '#icon-',
   },
   // 使用图标的名称
-  name:String,
+  name: String,
   // 接受父组件传递的颜色
-  color:{
+  color: {
     type: String,
-    default: ''
+    default: '',
   },
   // 接受父组件传递的宽度
-  width:{
-    type:String,
-    default:'16px'
+  width: {
+    type: String,
+    default: '16px',
   },
   // 接受父组件传递的高度
-  height:{
-    type:String,
-    default:'16px'
-  }
-  
+  height: {
+    type: String,
+    default: '16px',
+  },
 })
 </script>
 
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>

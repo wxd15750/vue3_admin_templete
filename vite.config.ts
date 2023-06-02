@@ -8,7 +8,8 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(),
+  plugins: [
+    vue(),
     // 配置svg图标
     createSvgIconsPlugin({
       iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
@@ -17,7 +18,16 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname,"src") // 相对路径别名配置，使用 @ 代替 src
-    }
+      '@': path.resolve(__dirname, 'src'), // 相对路径别名配置，使用 @ 代替 src
+    },
+  },
+  // 样式全局变量的配置
+  css: {
+    preprocessorOptions: {
+      scss: {
+        javascriptEnabled: true,
+        additionalData: '@import "./src/styles/variable.scss";',
+      },
+    },
   },
 })
