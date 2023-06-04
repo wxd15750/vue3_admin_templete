@@ -22,7 +22,6 @@ import router from '@/router/index.ts'
 //svg插件需要配置代码
 import 'virtual:svg-icons-register'
 
-
 // 清除默认样式
 import '@/styles/index.scss'
 

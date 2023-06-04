@@ -20,7 +20,7 @@ export default defineConfig(({ command, mode }) => {
       }),
       viteMockServe({
         // @ts-expect-error
-        localEnabled: command === "build" | "serve", //保证开发阶段可以使用mock接口
+        localEnabled: (command === 'build') | 'serve', //保证开发阶段可以使用mock接口
       }),
     ],
     resolve: {
