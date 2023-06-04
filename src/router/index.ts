@@ -8,16 +8,16 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
-      // 首页
-      path: '/',
-      component: () => import('@/views/home/index.vue'),
-      name: 'Home',
-    },
-    {
       // 登录
       path: '/login',
       component: () => import('@/views/login/index.vue'),
       name: 'Login',
+    },
+    {
+      // 首页
+      path: '/',
+      component: () => import('@/views/home/index.vue'),
+      name: 'Home',
     },
     {
       // 404页面
