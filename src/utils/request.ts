@@ -5,21 +5,21 @@ import { ElMessage } from 'element-plus'
 
 // 第一步：利用axios对象的create方法，去创建axios实例（其他的配置:基础路径、超时时间）
 
-const requeset = axios.create({
+const request = axios.create({
   // 基础路径
-  baseURL: import.meta.env.VITE_APP_BASE_API,
+  baseURL: 'http://sph-api.atguigu.cn/api',
   // 设置超时时间
   timeout: 5000,
 })
 
 // // 第二步：给request实例添加请求拦截器
-requeset.interceptors.request.use((config) => {
+request.interceptors.request.use((config) => {
   // 返回配置对象
   return config
 })
 
 // 第三步：给request实例添加响应拦截器
-requeset.interceptors.response.use(
+request.interceptors.response.use(
   (response) => {
     // 成功的回调
     // 简化数据
@@ -58,4 +58,4 @@ requeset.interceptors.response.use(
 )
 
 // 对外暴露
-export default requeset
+export default request

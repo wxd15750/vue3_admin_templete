@@ -37,5 +37,16 @@ export default defineConfig(({ command, mode }) => {
         },
       },
     },
+    // 配置代理服务器
+    proxy: {
+      // 字符串简写写法：http://localhost:5173/foo -> http://localhost:4567/foo
+      // '/foo': 'http://localhost:4567',
+      // 带选项写法：http://localhost:5173/api/bar -> http://jsonplaceholder.typicode.com/bar
+      '/api': {
+        target: 'http://sph-api.atguigu.cn',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    }
   }
 })

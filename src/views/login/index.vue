@@ -19,7 +19,9 @@
             ></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button class="login_btn" type="primary" size="default" @click="login">登录</el-button>
+            <el-button class="login_btn" type="primary" size="default" @click="login">
+              登录
+            </el-button>
           </el-form-item>
         </el-form>
         <!-- 登录的表单 -->
@@ -39,19 +41,19 @@ import { User, Lock } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
 // 引入用户相关的小仓库
 import useUserStore from '@/store/user'
-const userStore = useUserStore(); 
+const userStore = useUserStore()
 // 第一种方法：通过ref去定义数据
 // const username = ref('')
 // const password = ref('')
 // 第二种：通过reactive去定义数据
-const loginFrom = reactive({ username: '', password: '' })
+const loginFrom = reactive({ username: 'admin', password: '111111' })
 
 // 去登陆
 const login = () => {
   // 1.通知仓库发请求
   // 2.请求成功->首页展示数据
   // 3.请求失败-> 弹出登录失败的消息提示
-  userStore.userLogin()
+  userStore.userLogin(loginFrom)
 }
 </script>
 
