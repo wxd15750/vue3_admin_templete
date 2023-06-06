@@ -12,10 +12,9 @@ const useUserStore = defineStore('User', {
   // 异步逻辑
   actions: {
     // 用户登录的方法
-    async userLogin(data:loginFormType) {
+    async userLogin(data: loginFormType) {
       let res = await loginApi.reqLogin(data)
-      console.log(res);
-      
+      console.log(res)
     },
   },
   getters: {},
