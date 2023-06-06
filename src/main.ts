@@ -21,6 +21,8 @@ import router from '@/router/index.ts'
 
 //svg插件需要配置代码
 import 'virtual:svg-icons-register'
+// 引入pinia仓库
+import pinia from './store'
 
 // 清除默认样式
 import '@/styles/index.scss'
@@ -33,6 +35,8 @@ app.use(ElementPlus, {
 
 // 注册路由
 app.use(router)
+// 使用pinia
+app.use(pinia)
 
 // 全局注册
 // app.component('SvgIcon',SvgIcon)
