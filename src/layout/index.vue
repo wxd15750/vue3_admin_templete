@@ -1,7 +1,9 @@
 <template>
   <div class="layout_container">
     <!-- 左侧菜单 -->
-    <div class="layout_slider">123</div>
+    <div class="layout_slider">
+      <Logo></Logo>
+    </div>
     <!-- 顶部导航 -->
     <div class="layout_tabbar">456</div>
     <!-- 内容展示区 -->
@@ -16,7 +18,10 @@ export default defineComponent({
   name: 'Layout',
 })
 </script>
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+// 引入左侧菜单子组件
+import Logo from './logo/index.vue'
+</script>
 
 <style lang="scss" scoped>
 .layout_container {
