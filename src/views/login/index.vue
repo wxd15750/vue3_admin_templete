@@ -49,6 +49,8 @@ import { reactive, ref } from 'vue'
 import { ElNotification } from 'element-plus'
 // 导入路由
 import { useRouter } from 'vue-router'
+// 或去当前时间的函数
+import {getTime} from '@/utils/timer'
 // 引入用户相关的小仓库
 import useUserStore from '@/store/user'
 const userStore = useUserStore()
@@ -73,7 +75,7 @@ const login = async () => {
     await userStore.userLogin(loginFrom)
     $router.push('/')
     ElNotification({
-      // title: 'success',
+      title: `HI,${getTime()}好 `,
       message: '登录成功',
       type: 'success',
     })
