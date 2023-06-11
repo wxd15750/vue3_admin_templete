@@ -50,7 +50,7 @@ import { ElNotification } from 'element-plus'
 // 导入路由
 import { useRouter } from 'vue-router'
 // 或去当前时间的函数
-import {getTime} from '@/utils/timer'
+import { getTime } from '@/utils/timer'
 // 引入用户相关的小仓库
 import useUserStore from '@/store/user'
 const userStore = useUserStore()
