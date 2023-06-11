@@ -9,7 +9,6 @@
         <!-- 菜单组件 -->
         <el-menu background-color="#001529" text-color="#fff">
           <Menu :menuList="userStore.menuRoutes"></Menu>
-          
         </el-menu>
       </el-scrollbar>
     </div>
