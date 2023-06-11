@@ -1,6 +1,5 @@
 // 引入axios
 import axios from 'axios'
-// @ts-ignore
 import { ElMessage } from 'element-plus'
 
 // 第一步：利用axios对象的create方法，去创建axios实例（其他的配置:基础路径、超时时间）
@@ -31,7 +30,7 @@ request.interceptors.response.use(
     // 定义一个变量，存储网络错误信息
     let message = ''
     // http状态码
-    let status = error.response.status
+    const status = error.response.status
     switch (status) {
       case 401:
         message = 'TOKEN过期'

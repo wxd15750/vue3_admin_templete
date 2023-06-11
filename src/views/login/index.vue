@@ -64,15 +64,38 @@ const loading = ref(false)
 // 获取路由器
 const $router = useRouter()
 
+// 自定义校验规则
+const validatorUserName = (rule: any, value: any, callback: any) => {
+  // rule即为数组的校验对象
+  // value 即为表单元素的文本内容
+  // callback 是一个函数，如果符合条件callback放行通过即可，如果不符合条件callback方法，注入错误提示信息
+  if (value.length >= 5) {
+    callback()
+  } else {
+    callback(new Error('账号长度至少为5位'))
+  }
+}
+
+const validatorPassword = (rule: any, value: any, callback: any) => {
+  if (value.length >= 6 && value.length <= 15) {
+    callback()
+  } else {
+    callback(new Error('密码长度至少为6位'))
+  }
+}
+
 // 定义表单校验的配置对象，表单的单个校验
 const rules = {
   username: [
-    { required: true, message: '用户名不能为空', trigger: 'blur' },
-    { required: true, min: 6, max: 10, message: '账号的长度至少六位', trigger: 'change' },
+    // { required: true, message: '用户名不能为空', trigger: 'blur' },
+    // { required: true, min: 6, max: 10, message: '账号的长度至少六位', trigger: 'change' },
+    // 自定义校验规则
+    { trigger: 'change', validator: validatorUserName },
   ],
   password: [
-    { required: true, message: '密码不能为空', trigger: 'blur' },
-    { required: true, min: 6, max: 15, message: '密码的长度至少六位', trigger: 'change' },
+    // { required: true, message: '密码不能为空', trigger: 'blur' },
+    // { required: true, min: 6, max: 15, message: '密码的长度至少六位', trigger: 'change' },
+    { trigger: 'change', validator: validatorPassword },
   ],
 }
 

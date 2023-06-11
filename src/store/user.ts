@@ -8,7 +8,7 @@ import { reqLogin } from '@/api/user'
 import { GET_TOKEN, SET_TOKEN } from '@/utils/token'
 import type { UserState } from './userType'
 // 创建用户小仓库
-let useUserStore = defineStore('User', {
+const useUserStore = defineStore('User', {
   // 存储数据的
   state: (): UserState => {
     return {
@@ -20,7 +20,7 @@ let useUserStore = defineStore('User', {
     // 用户登录的方法
     async userLogin(data: loginFormType) {
       // 登录请求
-      let res = await reqLogin(data)
+      const res = await reqLogin(data)
       // 登录请求：成功200 -> token
       //          失败201 -> 登录失败错误提示信息
       if (res.code === 200) {
@@ -41,6 +41,3 @@ let useUserStore = defineStore('User', {
 
 // 对外暴漏获取小仓库的方法
 export default useUserStore
-function UserState(): (() => {}) | undefined {
-  throw new Error('Function not implemented.')
-}
