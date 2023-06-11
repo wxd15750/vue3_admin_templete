@@ -19,7 +19,13 @@
             ></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button :loading="loading" class="login_btn" type="primary" size="default" @click="login">
+            <el-button
+              :loading="loading"
+              class="login_btn"
+              type="primary"
+              size="default"
+              @click="login"
+            >
               登录
             </el-button>
           </el-form-item>
@@ -42,7 +48,7 @@ import { reactive, ref } from 'vue'
 // 消息提示
 import { ElNotification } from 'element-plus'
 // 导入路由
-import {useRouter} from 'vue-router'
+import { useRouter } from 'vue-router'
 // 引入用户相关的小仓库
 import useUserStore from '@/store/user'
 const userStore = useUserStore()
@@ -72,7 +78,6 @@ const login = async () => {
       type: 'success',
     })
     loading.value = false
-
   } catch (error) {
     ElNotification({
       // title: 'error',
@@ -80,7 +85,6 @@ const login = async () => {
       type: 'error',
     })
     loading.value = false
-
   }
 }
 </script>

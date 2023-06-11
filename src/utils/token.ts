@@ -1,11 +1,11 @@
-const TOKEN_NAME = 'user_token';
+const TOKEN_NAME = 'user_token'
 
 /**
  * @description 设置token
  * @param data 用户的唯一标识token
  */
-export const SET_TOKEN = (token:string) => {
-  return localStorage.setItem(TOKEN_NAME,token)
+export const SET_TOKEN = (token: string) => {
+  return localStorage.setItem(TOKEN_NAME, token)
 }
 
 /**
@@ -21,5 +21,4 @@ export const GET_TOKEN = () => {
  */
 export const REMOVE_TOKEN = () => {
   return localStorage.removeItem(TOKEN_NAME)
-
 }

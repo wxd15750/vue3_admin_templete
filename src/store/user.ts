@@ -5,14 +5,14 @@ import type { loginFormType } from '@/api/user/type'
 // 引入接口
 import { reqLogin } from '@/api/user'
 // 导入本地存储
-import {GET_TOKEN, SET_TOKEN} from '@/utils/token'
-import type {UserState} from './userType'
+import { GET_TOKEN, SET_TOKEN } from '@/utils/token'
+import type { UserState } from './userType'
 // 创建用户小仓库
 let useUserStore = defineStore('User', {
   // 存储数据的
-  state: ():UserState => {
+  state: (): UserState => {
     return {
-      token:'' || GET_TOKEN() // 用户唯一标识
+      token: '' || GET_TOKEN(), // 用户唯一标识
     }
   },
   // 异步逻辑
@@ -23,18 +23,17 @@ let useUserStore = defineStore('User', {
       let res = await reqLogin(data)
       // 登录请求：成功200 -> token
       //          失败201 -> 登录失败错误提示信息
-      if(res.code === 200){
+      if (res.code === 200) {
         // 使用pinia存储token
-        this.token = (res.data.token as string)
+        this.token = res.data.token as string
         // 将获取到的token设置到本地
         SET_TOKEN(res.data.token as string)
         // 保证当前async函数返回一个成功的promise
         return 'ok'
-      }else{
+      } else {
         return Promise.reject(new Error(res.data.message))
       }
       // console.log(res.data.token);
-      
     },
   },
   getters: {},
@@ -45,4 +44,3 @@ export default useUserStore
 function UserState(): (() => {}) | undefined {
   throw new Error('Function not implemented.')
 }
-

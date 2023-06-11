@@ -8,7 +8,7 @@ import { ElMessage } from 'element-plus'
 const request = axios.create({
   // 基础路径
   // baseURL: 'https://zzdj.zunzhongdj.cn/',
-  baseURL:import.meta.env.VITE_APP_BASE_API,
+  baseURL: import.meta.env.VITE_APP_BASE_API,
   // 设置超时时间
   timeout: 5000,
 })
