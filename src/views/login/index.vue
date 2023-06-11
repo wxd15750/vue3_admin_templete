@@ -4,13 +4,13 @@
     <el-row>
       <el-col :span="12" :xs="0"></el-col>
       <el-col :span="12" :xs="24">
-        <el-form class="login_form">
+        <el-form class="login_form" :model="loginFrom" :rules="rules" ref="loginForms">
           <h1>Hello</h1>
           <h2>欢迎来到登录页</h2>
-          <el-form-item>
+          <el-form-item prop="username">
             <el-input type="text" :prefix-icon="User" v-model="loginFrom.username"></el-input>
           </el-form-item>
-          <el-form-item>
+          <el-form-item prop="password">
             <el-input
               type="password"
               :prefix-icon="Lock"
@@ -63,8 +63,30 @@ const loginFrom = reactive({ username: 'admin', password: '111111' })
 const loading = ref(false)
 // 获取路由器
 const $router = useRouter()
+
+// 定义表单校验的配置对象，表单的单个校验
+const rules = {
+  username:[
+    {required:true,message:'用户名不能为空',trigger:'blur'},
+    {required:true,min:6,max:10,message:'账号的长度至少六位',trigger:'change'}
+  ],
+  password:[
+    {required:true,message:'密码不能为空',trigger:'blur'},
+    {required:true,min:6,max:15,message:'密码的长度至少六位',trigger:'change'}
+  ]
+}
+
+// 获取表单组件
+const loginForms = ref();
+
+
+
 // 去登陆
 const login = async () => {
+  // 表单的最终校验
+  // 保证所有的表单组件都通过才发请求
+  const result = await loginForms.value.validate();
+
   // 开启loading加载效果
   loading.value = true
   // 1.通知仓库发请求
