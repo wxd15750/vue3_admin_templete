@@ -7,12 +7,15 @@ import { reqLogin } from '@/api/user'
 // 导入本地存储
 import { GET_TOKEN, SET_TOKEN } from '@/utils/token'
 import type { UserState } from './userType'
+// 引入路由（常量路由）
+import { constantRoute } from '@/router/router'
 // 创建用户小仓库
 const useUserStore = defineStore('User', {
   // 存储数据的
   state: (): UserState => {
     return {
       token: '' || GET_TOKEN(), // 用户唯一标识
+      menuRoutes: constantRoute, // 仓库存储生成菜单需要数组（路由）
     }
   },
   // 异步逻辑
