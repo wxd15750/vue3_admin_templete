@@ -66,26 +66,24 @@ const $router = useRouter()
 
 // 定义表单校验的配置对象，表单的单个校验
 const rules = {
-  username:[
-    {required:true,message:'用户名不能为空',trigger:'blur'},
-    {required:true,min:6,max:10,message:'账号的长度至少六位',trigger:'change'}
+  username: [
+    { required: true, message: '用户名不能为空', trigger: 'blur' },
+    { required: true, min: 6, max: 10, message: '账号的长度至少六位', trigger: 'change' },
   ],
-  password:[
-    {required:true,message:'密码不能为空',trigger:'blur'},
-    {required:true,min:6,max:15,message:'密码的长度至少六位',trigger:'change'}
-  ]
+  password: [
+    { required: true, message: '密码不能为空', trigger: 'blur' },
+    { required: true, min: 6, max: 15, message: '密码的长度至少六位', trigger: 'change' },
+  ],
 }
 
 // 获取表单组件
-const loginForms = ref();
-
-
+const loginForms = ref()
 
 // 去登陆
 const login = async () => {
   // 表单的最终校验
   // 保证所有的表单组件都通过才发请求
-  const result = await loginForms.value.validate();
+  const result = await loginForms.value.validate()
 
   // 开启loading加载效果
   loading.value = true
