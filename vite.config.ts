@@ -10,6 +10,8 @@ import { viteMockServe } from 'vite-plugin-mock'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
+  //获取各种环境下的对应的变量
+  let env = loadEnv(mode, process.cwd());
   return {
     plugins: [
       vue(),
@@ -38,15 +40,18 @@ export default defineConfig(({ command, mode }) => {
       },
     },
     // 配置代理服务器
+   //代理跨域
+   server: {
     proxy: {
-      // 字符串简写写法：http://localhost:5173/foo -> http://localhost:4567/foo
-      // '/foo': 'http://localhost:4567',
-      // 带选项写法：http://localhost:5173/api/bar -> http://jsonplaceholder.typicode.com/bar
-      '/api': {
-        target: 'http://sph-api.atguigu.cn',
+      [env.VITE_APP_BASE_API]: {
+        //获取数据的服务器地址设置
+        target: env.VITE_SERVE,
+        //需要代理跨域
         changeOrigin: true,
+        //路径重写
         rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-    },
+      }
+    }
+  }
   }
 })

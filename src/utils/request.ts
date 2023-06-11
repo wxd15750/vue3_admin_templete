@@ -7,7 +7,8 @@ import { ElMessage } from 'element-plus'
 
 const request = axios.create({
   // 基础路径
-  baseURL: 'http://sph-api.atguigu.cn/api',
+  // baseURL: 'https://zzdj.zunzhongdj.cn/',
+  baseURL:import.meta.env.VITE_APP_BASE_API,
   // 设置超时时间
   timeout: 5000,
 })
@@ -23,7 +24,7 @@ request.interceptors.response.use(
   (response) => {
     // 成功的回调
     // 简化数据
-    return response.data
+    return response
   },
   (error) => {
     // 失败的回调：处理http网络错误
