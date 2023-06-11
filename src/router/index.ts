@@ -15,7 +15,7 @@ const router = createRouter({
     {
       // 首页
       path: '/',
-      component: () => import('@/views/home/index.vue'),
+      component: () => import('@/layout/index.vue'),
       name: 'Home',
     },
     {
