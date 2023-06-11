@@ -6,30 +6,29 @@
     <div class="layout_tabbar">456</div>
     <!-- 内容展示区 -->
     <div class="layout_main">
-      <p style="height: 3000px;">789</p>
+      <p style="height: 3000px">789</p>
     </div>
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent } from 'vue';
-  export default defineComponent({
-    name:''
-  })
+import { defineComponent } from 'vue'
+export default defineComponent({
+  name: 'Layout',
+})
 </script>
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 
 <style lang="scss" scoped>
-.layout_container{
+.layout_container {
   width: 100%;
   height: 100vh;
   // background-color: #e84a4a;
-  .layout_slider{
+  .layout_slider {
     width: $base-menu-width;
     height: 100vh;
     background-color: $base-menu-background;
   }
-  .layout_tabbar{
+  .layout_tabbar {
     position: fixed;
     top: 0px;
     left: $base-menu-width;
@@ -37,7 +36,7 @@
     height: $base-tabber-height;
     background-color: #45c1ea;
   }
-  .layout_main{
+  .layout_main {
     position: absolute;
     width: calc(100% - $base-menu-width);
     height: calc(100vh - $base-tabber-height);
