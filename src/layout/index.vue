@@ -48,7 +48,7 @@ const userStore = useUserStore()
     .scrollbar {
       width: 100%;
       height: calc(100vh - $base-menu-logo-height);
-      .el-menu{
+      .el-menu {
         border-right: none;
       }
     }
