@@ -26,8 +26,8 @@
     <el-sub-menu :index="item.path" v-if="item.children && item.children.length > 1">
       <template #title>
         <el-icon>
-            <component :is="item.meta.icon"></component>
-          </el-icon>
+          <component :is="item.meta.icon"></component>
+        </el-icon>
         <span>{{ item.meta.title }}</span>
       </template>
       <!-- 递归组件 -->
@@ -46,8 +46,7 @@ export default defineComponent({
 defineProps(['menuList'])
 
 const goRoute = (vc) => {
-  console.log(vc);
-  
+  console.log(vc)
 }
 </script>
 
