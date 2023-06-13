@@ -2,9 +2,11 @@
   <template v-for="(item, index) in menuList" :key="item.path">
     <!-- 没有子路由 -->
     <template v-if="!item.children">
-      <el-menu-item v-if="!item.meta.hidden" :index="item.path">
+      <el-menu-item v-if="!item.meta.hidden" :index="item.path" @click="goRoute">
         <template #title>
-          <span>标&nbsp;</span>
+          <el-icon>
+            <component :is="item.meta.icon"></component>
+          </el-icon>
           <span>{{ item.meta.title }}</span>
         </template>
       </el-menu-item>
@@ -13,6 +15,9 @@
     <template v-if="item.children && item.children.length == 1">
       <el-menu-item v-if="!item.children[0].meta.hidden" :index="item.children[0].path">
         <template #title>
+          <el-icon>
+            <component :is="item.meta.icon"></component>
+          </el-icon>
           <span>{{ item.children[0].meta.title }}</span>
         </template>
       </el-menu-item>
@@ -20,6 +25,9 @@
     <!-- 有子路由，且个数大于1个 -->
     <el-sub-menu :index="item.path" v-if="item.children && item.children.length > 1">
       <template #title>
+        <el-icon>
+            <component :is="item.meta.icon"></component>
+          </el-icon>
         <span>{{ item.meta.title }}</span>
       </template>
       <!-- 递归组件 -->
@@ -36,6 +44,11 @@ export default defineComponent({
 <script lang="ts" setup>
 // 接受父组件传递的全部路由数据
 defineProps(['menuList'])
+
+const goRoute = (vc) => {
+  console.log(vc);
+  
+}
 </script>
 
 <style lang="scss" scoped></style>

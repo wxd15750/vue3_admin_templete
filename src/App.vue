@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <!-- <el-icon>
+      <Plus/>
+    </el-icon> -->
   </div>
 </template>
 <script lang="ts">

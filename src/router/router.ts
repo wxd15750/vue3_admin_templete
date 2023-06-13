@@ -8,6 +8,7 @@ export const constantRoute = [
     meta: {
       title: '登录',
       hidden: true, // true为隐藏，false为不隐藏
+      icon: 'ChatSquare',
     },
   },
   {
@@ -18,6 +19,7 @@ export const constantRoute = [
     meta: {
       title: 'layout',
       hidden: false,
+      icon: 'Lock',
     },
     children: [
       {
@@ -25,15 +27,8 @@ export const constantRoute = [
         component: () => import('@/views/home/index.vue'),
         meta: {
           title: '首页',
-          hidden: true,
-        },
-      },
-      {
-        path: '/ceshi',
-        component: () => import('@/views/home/index.vue'),
-        meta: {
-          title: '测试',
           hidden: false,
+          icon: 'User',
         },
       },
     ],
@@ -46,6 +41,7 @@ export const constantRoute = [
     meta: {
       title: '404',
       hidden: true,
+      icon: 'SwitchButton',
     },
   },
   {
@@ -56,6 +52,7 @@ export const constantRoute = [
     meta: {
       title: '任意路由',
       hidden: true,
+      icon: 'Promotion',
     },
   },
 ]
