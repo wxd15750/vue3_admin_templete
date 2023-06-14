@@ -7,7 +7,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: '',
+  name: 'Logo',
 })
 </script>
 <script lang="ts" setup>
@@ -23,13 +23,13 @@ import { set } from 'nprogress'
   color: #fff;
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   img {
     width: 40px;
     height: 40px;
   }
   p {
-    font-size: $basee-logo-title-fontSize;
+    font-size: $base-logo-title-fontSize;
     margin-left: 10px;
   }
 }
