@@ -1,16 +1,12 @@
 <template>
-  <div>
-    角色权限
-  </div>
+  <div>角色权限</div>
 </template>
 <script lang="ts">
-  import { defineComponent } from 'vue';
-  export default defineComponent({
-    name:'Role'
-  })
+import { defineComponent } from 'vue'
+export default defineComponent({
+  name: 'Role',
+})
 </script>
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>
