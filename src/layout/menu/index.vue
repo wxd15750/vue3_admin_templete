@@ -13,7 +13,11 @@
     </template>
     <!-- 有子路由，但是只有一个 -->
     <template v-if="item.children && item.children.length == 1">
-      <el-menu-item v-if="!item.children[0].meta.hidden" :index="item.children[0].path">
+      <el-menu-item
+        v-if="!item.children[0].meta.hidden"
+        :index="item.children[0].path"
+        @click="goRoute"
+      >
         <template #title>
           <el-icon>
             <component :is="item.meta.icon"></component>
@@ -42,11 +46,15 @@ export default defineComponent({
 })
 </script>
 <script lang="ts" setup>
+// 导入路由，获取路由器对象
+import { useRouter } from 'vue-router'
+const $router = useRouter()
 // 接受父组件传递的全部路由数据
 defineProps(['menuList'])
 
-const goRoute = (vc) => {
-  console.log(vc)
+const goRoute = (vc: any) => {
+  // console.log(vc)
+  $router.push(vc.index)
 }
 </script>
 

@@ -67,28 +67,28 @@ export const constantRoute = [
         },
       },
       {
-        path: '/acl_mannger/user',
+        path: '/acl_mannger/role',
         component: () => import('@/views/acl/role/index.vue'),
         meta: {
           title: '角色管理',
           hidden: false,
-          icon: 'Monitor',
+          icon: 'Calendar',
         },
       },
       {
-        path: '/acl_mannger/user',
+        path: '/acl_mannger/menulist',
         component: () => import('@/views/acl/permission/index.vue'),
         meta: {
           title: '菜单管理',
           hidden: false,
-          icon: 'Present',
+          icon: 'UserFilled',
         },
       },
     ],
   },
   // 商品管理
   {
-    ptah: '/product',
+    path: '/product',
     component: () => import('@/layout/index.vue'),
     meta: {
       title: '商品管理',
