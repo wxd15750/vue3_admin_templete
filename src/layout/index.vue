@@ -7,13 +7,16 @@
       <!-- 滚动组件 -->
       <el-scrollbar class="scrollbar">
         <!-- 菜单组件 -->
-        <el-menu background-color="#001529" text-color="#fff">
+        <el-menu :default-active="$route.path" background-color="#001529" text-color="#fff">
           <Menu :menuList="userStore.menuRoutes"></Menu>
         </el-menu>
       </el-scrollbar>
     </div>
     <!-- 顶部导航 -->
-    <div class="layout_tabbar">456</div>
+    <div class="layout_tabbar">
+      <!-- layout组件顶部tabbar -->
+      <Tabbar></Tabbar>
+    </div>
     <!-- 内容展示区 -->
     <div class="layout_main">
       <Main></Main>
@@ -33,9 +36,16 @@ import Logo from './logo/index.vue'
 import Menu from './menu/index.vue'
 // 右侧内容展示区
 import Main from './main/index.vue'
+// 导入顶部tabbar组件
+import Tabbar from './tabbar/index.vue'
+// 获取路由对象
+import { useRoute } from 'vue-router'
 // 获取用户相关的小仓库
 import useUserStore from '@/store/user'
 const userStore = useUserStore()
+
+// 获取路由对象
+const $route = useRoute()
 </script>
 
 <style lang="scss" scoped>
@@ -50,6 +60,7 @@ const userStore = useUserStore()
     .scrollbar {
       width: 100%;
       height: calc(100vh - $base-menu-logo-height);
+      color: #fff;
       .el-menu {
         border-right: none;
       }
@@ -61,7 +72,7 @@ const userStore = useUserStore()
     left: $base-menu-width;
     width: calc(100% - $base-menu-width);
     height: $base-tabber-height;
-    background-color: #45c1ea;
+    // background-color: #45c1ea;
   }
   .layout_main {
     position: absolute;
