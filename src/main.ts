@@ -13,7 +13,7 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import gloalComponent from '@/components'
 
 // 引入路由
-import router from '@/router/index.ts'
+import router from '@/router'
 
 //svg插件需要配置代码
 import 'virtual:svg-icons-register'
@@ -22,6 +22,9 @@ import pinia from './store'
 
 // 清除默认样式
 import '@/styles/index.scss'
+
+// 引入路由鉴权的文件
+import '@/permisstion'
 
 const app = createApp(App)
 // 国际化
