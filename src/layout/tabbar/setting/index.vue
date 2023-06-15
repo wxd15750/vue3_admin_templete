@@ -1,5 +1,5 @@
 <template>
-  <el-button size="small" icon="Refresh" circle></el-button>
+  <el-button size="small" icon="Refresh" circle @click="updateRefsh"></el-button>
   <el-button size="small" icon="FullScreen" circle></el-button>
   <el-button size="small" icon="Setting" circle></el-button>
   <img src="../../../../public/logo.png" style="width: 24px; height: 24px; margin: 0 10px" />
@@ -24,6 +24,15 @@ export default defineComponent({
   name: 'Setting',
 })
 </script>
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+// 获取组件的小仓库
+import useLayoutSettingStore from '@/store/setting'
+const layoutSettingStore = useLayoutSettingStore()
+
+// 点击刷新的方法
+const updateRefsh = () => {
+  layoutSettingStore.refsh = !layoutSettingStore.refsh
+}
+</script>
 
 <style lang="scss" scoped></style>
