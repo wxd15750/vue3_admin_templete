@@ -5,10 +5,12 @@ import type { loginFormType } from '@/api/user/type'
 // 引入接口
 import { reqLogin, reqUserInfo } from '@/api/user'
 // 导入本地存储
-import { GET_TOKEN, SET_TOKEN } from '@/utils/token'
+import { GET_TOKEN, REMOVE_TOKEN, SET_TOKEN } from '@/utils/token'
 import type { UserState } from './userType'
+
 // 引入路由（常量路由）
 import { constantRoute } from '@/router/router'
+
 // 创建用户小仓库
 const useUserStore = defineStore('User', {
   // 存储数据的
@@ -51,6 +53,15 @@ const useUserStore = defineStore('User', {
         this.avatar = res.data.checkUser.avatar
       } else {
       }
+    },
+
+    // 用户退出登陆
+    userLayout() {
+      // 清空本地token
+      this.token = ''
+      this.username = ''
+      this.avatar = ''
+      REMOVE_TOKEN()
     },
   },
   getters: {},

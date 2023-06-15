@@ -48,7 +48,7 @@ import { reactive, ref } from 'vue'
 // 消息提示
 import { ElNotification } from 'element-plus'
 // 导入路由
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 // 或去当前时间的函数
 import { getTime } from '@/utils/timer'
 // 引入用户相关的小仓库
@@ -63,6 +63,7 @@ const loginFrom = reactive({ username: '', password: '' })
 const loading = ref(false)
 // 获取路由器
 const $router = useRouter()
+const $route = useRoute()
 
 // 自定义校验规则
 const validatorUserName = (rule: any, value: any, callback: any) => {
@@ -116,7 +117,17 @@ const login = async () => {
   try {
     // 保证登录成功
     await userStore.userLogin(loginFrom)
-    $router.push('/')
+    // 判断登录时，路由路径当中是否有query参数，如果有就往query参数页条，否则就跳首页
+    let redirect: any = $route.query.redirect
+
+    // if (redirect) {
+    //   $router.push(redirect)
+    // }else{
+
+    //   $router.push('/')
+    // }
+    // 二选一的跳转
+    $router.push({ path: redirect || '/' })
     ElNotification({
       title: `HI,${getTime()}好 `,
       message: '登录成功',
