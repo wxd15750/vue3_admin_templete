@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-card>
-      <h1>我是首页{{ userStore.username }}</h1>
+      <h1>我是首页</h1>
     </el-card>
   </div>
 </template>
@@ -12,15 +12,15 @@ export default defineComponent({
 })
 </script>
 <script lang="ts" setup>
-import { onMounted } from 'vue'
-// 引入仓库
-import useUserStore from '@/store/modules/user'
-// 获取仓库
-let userStore = useUserStore()
-// 首页挂载完获取用户信息
-onMounted(() => {
-  userStore.userInfo()
-})
+// import { onMounted } from 'vue'
+// // 引入仓库
+// import useUserStore from '@/store/modules/user'
+// // 获取仓库
+// let userStore = useUserStore()
+// // 首页挂载完获取用户信息
+// onMounted(() => {
+//   userStore.userInfo()
+// })
 </script>
 
 <style lang="scss" scoped>
