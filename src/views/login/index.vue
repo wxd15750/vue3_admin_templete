@@ -52,13 +52,13 @@ import { useRouter } from 'vue-router'
 // 或去当前时间的函数
 import { getTime } from '@/utils/timer'
 // 引入用户相关的小仓库
-import useUserStore from '@/store/user'
+import useUserStore from '@/store/modules/user'
 const userStore = useUserStore()
 // 第一种方法：通过ref去定义数据
 // const username = ref('')
 // const password = ref('')
 // 第二种：通过reactive去定义数据
-const loginFrom = reactive({ username: 'admin', password: '111111' })
+const loginFrom = reactive({ username: '', password: '' })
 // loadin效果
 const loading = ref(false)
 // 获取路由器

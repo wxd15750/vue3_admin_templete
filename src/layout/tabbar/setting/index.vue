@@ -2,11 +2,11 @@
   <el-button size="small" icon="Refresh" circle @click="updateRefsh"></el-button>
   <el-button size="small" icon="FullScreen" circle @click="fullScreen"></el-button>
   <el-button size="small" icon="Setting" circle></el-button>
-  <img src="../../../../public/logo.png" style="width: 24px; height: 24px; margin: 0 10px" />
+  <img :src="avatar" style="width: 24px; height: 24px; margin: 0 10px; border-radius: 50%" />
   <!-- 下拉菜单 -->
   <el-dropdown>
     <span class="el-dropdown-link">
-      admin
+      {{ username }}123
       <el-icon class="el-icon--right">
         <arrow-down />
       </el-icon>
@@ -26,9 +26,11 @@ export default defineComponent({
 </script>
 <script lang="ts" setup>
 // 获取组件的小仓库
-import useLayoutSettingStore from '@/store/setting'
+import useLayoutSettingStore from '@/store/modules/setting'
+// 获取用户相关的小仓库
+import useUserStore from '@/store/modules/user'
 const layoutSettingStore = useLayoutSettingStore()
-
+const { username, avatar } = useUserStore()
 // 点击刷新的方法
 const updateRefsh = () => {
   layoutSettingStore.refsh = !layoutSettingStore.refsh

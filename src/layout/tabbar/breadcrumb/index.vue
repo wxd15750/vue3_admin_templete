@@ -31,7 +31,7 @@ export default defineComponent({
 import { ref } from 'vue'
 // 获取路由对象
 import { useRoute } from 'vue-router'
-import useLayoutSettingStore from '@/store/setting'
+import useLayoutSettingStore from '@/store/modules/setting'
 // 获取layout相关的仓库
 const layoutSettingStore = useLayoutSettingStore()
 // 获取路由对象

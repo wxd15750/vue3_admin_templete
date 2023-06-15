@@ -1,6 +1,9 @@
 // 引入axios
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
+// import { GET_TOKEN } from './token'
+// 引入用户相关的store
+import useUserStore from '@/store/modules/user'
 
 // 第一步：利用axios对象的create方法，去创建axios实例（其他的配置:基础路径、超时时间）
 
@@ -12,8 +15,14 @@ const request = axios.create({
   timeout: 5000,
 })
 
-// // 第二步：给request实例添加请求拦截器
+// 第二步：给request实例添加请求拦截器
 request.interceptors.request.use((config) => {
+  // 设置token请求头
+  // const token = GET_TOKEN()
+  const useStore = useUserStore()
+  if (useStore.token) {
+    config.headers.token = useStore.token
+  }
   // 返回配置对象
   return config
 })

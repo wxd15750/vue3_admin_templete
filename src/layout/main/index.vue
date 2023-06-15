@@ -15,7 +15,7 @@ export default defineComponent({
 <script lang="ts" setup>
 import { watch, ref, nextTick } from 'vue'
 // 获取组件的小仓库
-import useLayoutSettingStore from '@/store/setting'
+import useLayoutSettingStore from '@/store/modules/setting'
 const layoutSettingStore = useLayoutSettingStore()
 // 控制当前组件是否销毁重建
 let flag = ref(true)

@@ -11,8 +11,8 @@ import type { loginFormType, loginResponseData, userResponseData } from './type'
 
  * */
 enum API {
-  LOGIN_URL = '/user/login',
-  USERINFO_URL = '/user/info',
+  LOGIN_URL = '/admin/acl/index/login',
+  USERINFO_URL = '/admin/acl/index/info',
 }
 
 export const reqLogin = (data: loginFormType) =>

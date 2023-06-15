@@ -46,9 +46,9 @@ import Tabbar from './tabbar/index.vue'
 // 获取路由对象
 import { useRoute } from 'vue-router'
 // 获取用户相关的小仓库
-import useUserStore from '@/store/user'
+import useUserStore from '@/store/modules/user'
 
-import useLayoutSettingStore from '@/store/setting'
+import useLayoutSettingStore from '@/store/modules/setting'
 // 获取layout相关的仓库
 const layoutSettingStore = useLayoutSettingStore()
 const userStore = useUserStore()
@@ -86,7 +86,7 @@ const $route = useRoute()
     width: calc(100% - $base-menu-width);
     height: $base-tabber-height;
     transition: all 0.3s;
-
+    border-bottom: 1px solid #c2bfbf;
     &.fold {
       width: calc(100vw - $base-menu-min-width);
       left: $base-menu-min-width;
@@ -97,7 +97,7 @@ const $route = useRoute()
     position: absolute;
     width: calc(100% - $base-menu-width);
     height: calc(100vh - $base-tabber-height);
-    background-color: #48ca62;
+    // background-color: #48ca62;
     left: $base-menu-width;
     top: $base-tabber-height;
     padding: 20px;

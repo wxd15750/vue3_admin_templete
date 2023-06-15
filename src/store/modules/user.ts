@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 // 引入类型
 import type { loginFormType } from '@/api/user/type'
 // 引入接口
-import { reqLogin } from '@/api/user'
+import { reqLogin, reqUserInfo } from '@/api/user'
 // 导入本地存储
 import { GET_TOKEN, SET_TOKEN } from '@/utils/token'
 import type { UserState } from './userType'
@@ -16,6 +16,8 @@ const useUserStore = defineStore('User', {
     return {
       token: '' || GET_TOKEN(), // 用户唯一标识
       menuRoutes: constantRoute, // 仓库存储生成菜单需要数组（路由）
+      username: '',
+      avatar: '',
     }
   },
   // 异步逻辑
@@ -37,6 +39,18 @@ const useUserStore = defineStore('User', {
         return Promise.reject(new Error(res.data.message))
       }
       // console.log(res.data.token);
+    },
+
+    // 获取用户信息
+    async userInfo() {
+      // 获取用户信息进行存储仓库当中[用户的头像，名字]
+      let res = await reqUserInfo()
+      // 如果获取用户信息成功，存储一下用户信息
+      if (res.code == 200) {
+        this.username = res.data.checkUser.username
+        this.avatar = res.data.checkUser.avatar
+      } else {
+      }
     },
   },
   getters: {},
