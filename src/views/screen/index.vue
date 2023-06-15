@@ -1,15 +1,12 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
-    <!-- <el-icon>
-      <Plus/>
-    </el-icon> -->
+  <div>
+    <h1>数据大屏组件</h1>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'App',
+  name: 'Screen',
 })
 </script>
 <script lang="ts" setup></script>

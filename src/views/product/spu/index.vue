@@ -1,15 +1,10 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
-    <!-- <el-icon>
-      <Plus/>
-    </el-icon> -->
-  </div>
+  <div>SPU管理</div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'App',
+  name: 'Spu',
 })
 </script>
 <script lang="ts" setup></script>

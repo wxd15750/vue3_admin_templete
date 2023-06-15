@@ -1,22 +1,22 @@
-// 登录接口携带参数返回值类型
-export interface loginFrom {
+// 登录接口需要携带的参数
+export interface loginFormType {
   username: string
   password: string
 }
-
-// token类型
+// 登录接口返回的数据类型
 interface dataType {
-  token: string
+  token?: string
+  message?: string
 }
-
-// 登录接口返回数据类型
 export interface loginResponseData {
   code: number
   data: dataType
 }
-
-// 定义服务器返回用户信息相关的数据类型
-interface userInfoTypoe {
+// 服务器返回用户信息相关的接口
+interface userType {
+  checkUser: userInfoType
+}
+interface userInfoType {
   userId: number
   avatar: string
   username: string
@@ -27,10 +27,6 @@ interface userInfoTypoe {
   routes: string[]
   token: string
 }
-interface userType {
-  checkUser: userInfoTypoe
-}
-
 export interface userResponseData {
   code: number
   data: userType

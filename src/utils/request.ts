@@ -1,36 +1,36 @@
 // 引入axios
 import axios from 'axios'
-// @ts-ignore
 import { ElMessage } from 'element-plus'
 
 // 第一步：利用axios对象的create方法，去创建axios实例（其他的配置:基础路径、超时时间）
 
-const requeset = axios.create({
+const request = axios.create({
   // 基础路径
+  // baseURL: 'https://zzdj.zunzhongdj.cn/',
   baseURL: import.meta.env.VITE_APP_BASE_API,
   // 设置超时时间
   timeout: 5000,
 })
 
 // // 第二步：给request实例添加请求拦截器
-requeset.interceptors.request.use((config) => {
+request.interceptors.request.use((config) => {
   // 返回配置对象
   return config
 })
 
 // 第三步：给request实例添加响应拦截器
-requeset.interceptors.response.use(
+request.interceptors.response.use(
   (response) => {
     // 成功的回调
     // 简化数据
-    return response.data
+    return response
   },
   (error) => {
     // 失败的回调：处理http网络错误
     // 定义一个变量，存储网络错误信息
     let message = ''
     // http状态码
-    let status = error.response.status
+    const status = error.response.status
     switch (status) {
       case 401:
         message = 'TOKEN过期'
@@ -58,4 +58,4 @@ requeset.interceptors.response.use(
 )
 
 // 对外暴露
-export default requeset
+export default request
