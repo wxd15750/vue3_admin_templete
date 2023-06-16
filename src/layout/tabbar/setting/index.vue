@@ -6,7 +6,13 @@
     <!-- 放置表单组件 -->
     <el-form>
       <el-from-item label="主题颜色">
-        <el-color-picker v-model="color" size="small" show-alpha :predefine="predefineColors" />
+        <el-color-picker
+          @change="setColor"
+          v-model="color"
+          size="small"
+          show-alpha
+          :predefine="predefineColors"
+        />
       </el-from-item>
       <el-from-item label="暗黑模式">
         <el-switch
@@ -115,6 +121,13 @@ const predefineColors = ref([
   'hsla(209, 100%, 56%, 0.73)',
   '#c7158577',
 ])
+
+// 主题颜色设置
+const setColor = () => {
+  // 通过js修改更节点的样式
+  const html = document.documentElement
+  html.style.setProperty('--el-color-primary', color.value)
+}
 
 // 收集开关的数局
 let dark = ref<boolean>(false)
