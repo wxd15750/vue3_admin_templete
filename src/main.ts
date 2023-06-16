@@ -25,7 +25,8 @@ import '@/styles/index.scss'
 
 // 引入路由鉴权的文件
 import '@/permisstion'
-
+// 引入暗黑模式的样式
+import 'element-plus/theme-chalk/dark/css-vars.css'
 const app = createApp(App)
 // 国际化
 app.use(ElementPlus, {
