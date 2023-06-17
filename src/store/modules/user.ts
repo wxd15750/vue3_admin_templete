@@ -16,13 +16,13 @@ const useUserStore = defineStore('User', {
   // 存储数据的
   state: (): UserState => {
     return {
-      token: GET_TOKEN() || '' , // 用户唯一标识
+      token: GET_TOKEN() || '', // 用户唯一标识
       menuRoutes: constantRoute, // 仓库存储生成菜单需要数组（路由）
       username: '',
       avatar: '',
-      routes:[],
-      buttons:[],
-      roles:[]
+      routes: [],
+      buttons: [],
+      roles: [],
     }
   },
   // 异步逻辑
@@ -42,13 +42,9 @@ const useUserStore = defineStore('User', {
         SET_TOKEN(res.data.token as string)
         // 保证当前async函数返回一个成功的promise
         return 'ok'
-   
       } catch (error) {
         return Promise.reject(error)
-        
       }
-        
-      
     },
 
     // 获取用户信息

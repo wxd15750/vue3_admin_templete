@@ -4,8 +4,8 @@ export interface UserState {
   token: string | null
   menuRoutes: RouteRecordRaw[]
   username: string
-  avatar: string,
-  routes:string[] ,
-  buttons:string[],
-  roles:string[]
+  avatar: string
+  routes: string[]
+  buttons: string[]
+  roles: string[]
 }
