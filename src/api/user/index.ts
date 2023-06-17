@@ -1,27 +1,24 @@
 import request from '@/utils/request'
-import type { loginFormType, loginResponseData, userResponseData } from './type'
-/**
- *  枚举接口
- *  enum API{
- *    LOGIN_URL='/user/login',
- *    USERINFO_URL = '/user/info'
- *  }
- * 暴露接口请求函数
- * export
+import { ResponseData, UserInfoType, loginType } from './type'
 
- * */
-enum API {
-  LOGIN_URL = '/admin/acl/index/login',
-  USERINFO_URL = '/admin/acl/index/info',
+// 接口地址
+enum userAPI{
+  USER_INFO = '/admin/acl/index/info',
+  LOGIN_API = '/admin/acl/index/login',
+  LOGOUT_API = '/admin/acl/index/logout'
 }
 
-export const reqLogin = (data: loginFormType) =>
-  request.post<any, loginResponseData>(API.LOGIN_URL, data)
-export const reqUserInfo = () => request.get<any, userResponseData>(API.USERINFO_URL)
 
-// 暴露接口请求函数
-// export default {
-//   reqLogin(data: loginFormType) {
-//     return request.post<any, loginResponseData>('adminapi/login', data)
-//   },
-// }
+// 获取用户信息
+
+export const reqUserInfo = () => request.get<any,UserInfoType>(userAPI.USER_INFO)
+
+// 登录
+export const reqLogin = (data:loginType) => request.post<any,ResponseData>(userAPI.LOGIN_API,data)
+
+// 退出登录
+export const reqLogout = () => request.post<any,null>(userAPI.LOGOUT_API)
+
+
+
+
