@@ -37,6 +37,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { GET_TOKEN } from '@/utils/token'
 export default defineComponent({
   name: 'Login',
 })
@@ -58,7 +59,7 @@ const userStore = useUserStore()
 // const username = ref('')
 // const password = ref('')
 // 第二种：通过reactive去定义数据
-const loginFrom = reactive({ username: '', password: '' })
+const loginFrom = reactive({ username: 'admin', password: '111111' })
 // loadin效果
 const loading = ref(false)
 // 获取路由器
@@ -107,7 +108,7 @@ const loginForms = ref()
 const login = async () => {
   // 表单的最终校验
   // 保证所有的表单组件都通过才发请求
-  const result = await loginForms.value.validate()
+  await loginForms.value.validate()
 
   // 开启loading加载效果
   loading.value = true
@@ -120,27 +121,24 @@ const login = async () => {
     // 判断登录时，路由路径当中是否有query参数，如果有就往query参数页条，否则就跳首页
     let redirect: any = $route.query.redirect
 
-    // if (redirect) {
-    //   $router.push(redirect)
-    // }else{
-
-    //   $router.push('/')
-    // }
     // 二选一的跳转
-    $router.push({ path: redirect || '/' })
-    ElNotification({
-      title: `HI,${getTime()}好 `,
-      message: '登录成功',
-      type: 'success',
-    })
+    // $router.push({ path: '/' })
+    $router.push('/')
     loading.value = false
+
+    // ElNotification({
+    //   title: `HI,${getTime()}好 `,
+    //   message: '登录成功',
+    //   type: 'success',
+    // })
+
   } catch (error) {
+    loading.value = false
     ElNotification({
       // title: 'error',
       message: (error as Error).message,
       type: 'error',
     })
-    loading.value = false
   }
 }
 </script>

@@ -16,10 +16,13 @@ const useUserStore = defineStore('User', {
   // 存储数据的
   state: (): UserState => {
     return {
-      token: '' || GET_TOKEN(), // 用户唯一标识
+      token: GET_TOKEN() || '' , // 用户唯一标识
       menuRoutes: constantRoute, // 仓库存储生成菜单需要数组（路由）
       username: '',
       avatar: '',
+      routes:[],
+      buttons:[],
+      roles:[]
     }
   },
   // 异步逻辑
@@ -28,19 +31,24 @@ const useUserStore = defineStore('User', {
     async userLogin(data: loginFormType) {
       // 登录请求
       const res = await reqLogin(data)
+
       // 登录请求：成功200 -> token
       //          失败201 -> 登录失败错误提示信息
-      if (res.code === 200) {
+      try {
         // 使用pinia存储token
         this.token = res.data.token as string
+        console.log(this.token)
         // 将获取到的token设置到本地
         SET_TOKEN(res.data.token as string)
         // 保证当前async函数返回一个成功的promise
         return 'ok'
-      } else {
-        return Promise.reject(new Error(res.data.message))
+   
+      } catch (error) {
+        return Promise.reject(error)
+        
       }
-      // console.log(res.data.token);
+        
+      
     },
 
     // 获取用户信息
@@ -48,7 +56,7 @@ const useUserStore = defineStore('User', {
       // 获取用户信息进行存储仓库当中[用户的头像，名字]
       let res = await reqUserInfo()
       // 如果获取用户信息成功，存储一下用户信息
-      if (res.code == 200) {
+      if (res.code === 20000) {
         this.username = res.data.checkUser.username
         this.avatar = res.data.checkUser.avatar
         return 'ok'

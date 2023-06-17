@@ -62,23 +62,26 @@ const $route = useRoute()
 .layout_container {
   width: 100%;
   height: 100vh;
-  // background-color: #e84a4a;
+  background-color: #fff;
   .layout_slider {
     width: $base-menu-width;
+    color: #fff;
     height: 100vh;
     background-color: $base-menu-background;
     transition: all 0.3s;
     .scrollbar {
       width: 100%;
       height: calc(100vh - $base-menu-logo-height);
-      color: #fff;
+
       .el-menu {
         border-right: none;
       }
     }
-    &.fold {
-      width: $base-menu-min-width;
-    }
+
+    // &.fold {
+    //   width: calc(100vw - $base-menu-min-width);
+    //   // left: $base-menu-min-width;
+    // }
   }
   .layout_tabbar {
     position: fixed;
@@ -92,13 +95,14 @@ const $route = useRoute()
       width: calc(100vw - $base-menu-min-width);
       left: $base-menu-min-width;
     }
-    // background-color: #45c1ea;
+    background-color: $base-right-background;
   }
   .layout_main {
     position: absolute;
     width: calc(100% - $base-menu-width);
     height: calc(100vh - $base-tabber-height);
-    // background-color: #48ca62;
+    background-color: $base-right-background;
+
     left: $base-menu-width;
     top: $base-tabber-height;
     padding: 20px;
