@@ -9,6 +9,7 @@ import setting from './setting'
 // 引入进度条相关的插件
 import nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
+import { requestListMap } from './utils/request'
 
 // 关闭小圆圈
 nprogress.configure({ showSpinner: false })
@@ -28,11 +29,22 @@ router.beforeEach(async (to: any, from: any, next: any) => {
   //to:你将要访问那个路由
   //from:你从来个路由而来
   //next:路由的放行函数
+
   nprogress.start()
   //获取token,去判断用户登录、还是未登录
   let token = userStore.token
   //获取用户名字
   let username = userStore.name
+
+  requestListMap.forEach(({ pathname, cancel }, key) => {
+    if (pathname !== to.path) {
+      cancel()
+      requestListMap.delete(key)
+    }
+  })
+
+  next()
+
   //用户登录判断
   if (token) {
     //登录成功,访问login,不能访问,指向首页
