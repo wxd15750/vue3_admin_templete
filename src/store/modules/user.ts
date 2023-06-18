@@ -1,77 +1,70 @@
 // 创建用户相关的小仓库
-import { defineStore } from 'pinia'
-// 引入类型
-import type { loginFormType } from '@/api/user/type'
-// 引入接口
-import { reqLogin, reqUserInfo } from '@/api/user'
-// 导入本地存储
+import { reqLogin, reqLogout, reqUserInfo } from '@/api/user'
+import { loginType } from '@/api/user/type'
 import { GET_TOKEN, REMOVE_TOKEN, SET_TOKEN } from '@/utils/token'
-import type { UserState } from './userType'
-
-// 引入路由（常量路由）
+import { defineStore } from 'pinia'
+import { UserState } from './userType'
 import { constantRoute } from '@/router/router'
 
-// 创建用户小仓库
 const useUserStore = defineStore('User', {
-  // 存储数据的
-  state: (): UserState => {
+  state(): UserState {
     return {
-      token: GET_TOKEN() || '', // 用户唯一标识
-      menuRoutes: constantRoute, // 仓库存储生成菜单需要数组（路由）
-      username: '',
+      token: '' || GET_TOKEN(),
+      // 用户信息相关
       avatar: '',
-      routes: [],
       buttons: [],
+      name: '',
       roles: [],
+      routes: [],
+      menuRoutes: constantRoute,
     }
   },
-  // 异步逻辑
   actions: {
-    // 用户登录的方法
-    async userLogin(data: loginFormType) {
-      // 登录请求
-      const res = await reqLogin(data)
-
-      // 登录请求：成功200 -> token
-      //          失败201 -> 登录失败错误提示信息
-      try {
-        // 使用pinia存储token
-        this.token = res.data.token as string
-        console.log(this.token)
-        // 将获取到的token设置到本地
-        SET_TOKEN(res.data.token as string)
-        // 保证当前async函数返回一个成功的promise
+    // 设置token
+    async userLogin(loginForm: loginType) {
+      const res = await reqLogin(loginForm)
+      // console.log(res)
+      if (res.code === 20000) {
+        this.token = res.data.token
+        // 将token存储到本地
+        SET_TOKEN(res.data.token)
         return 'ok'
-      } catch (error) {
-        return Promise.reject(error)
       }
     },
 
     // 获取用户信息
     async userInfo() {
-      // 获取用户信息进行存储仓库当中[用户的头像，名字]
-      let res = await reqUserInfo()
-      // 如果获取用户信息成功，存储一下用户信息
+      const res = await reqUserInfo()
+      // console.log(res)
       if (res.code === 20000) {
-        this.username = res.data.checkUser.username
-        this.avatar = res.data.checkUser.avatar
-        return 'ok'
-      } else {
-        return Promise.reject('获取用户信息失败')
+        this.avatar = 'https://img.zcool.cn/community/010a8959717638a8012193a3b02a14.gif'
+        this.buttons = res.data.buttons
+        this.name = res.data.name
+        this.roles = res.data.roles
+        this.routes = res.data.routes
       }
     },
-
-    // 用户退出登陆
-    userLayout() {
-      // 清空本地token
+    // 清空用户信息
+    async resetUserInfo() {
       this.token = ''
-      this.username = ''
       this.avatar = ''
+      this.buttons = []
+      this.name = ''
+      this.roles = []
+      this.routes = []
       REMOVE_TOKEN()
+    },
+    // 用户退出登录
+    async userLayout() {
+      await reqLogout()
+      // console.log(res)
+      // if ((res).code === 20000) {
+      this.resetUserInfo()
+      return 'ok'
+      // }
     },
   },
   getters: {},
 })
 
-// 对外暴漏获取小仓库的方法
 export default useUserStore

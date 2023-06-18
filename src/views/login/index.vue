@@ -1,6 +1,6 @@
 <template>
   <div class="login_container">
-    <!-- 使用element的山歌系统 -->
+    <!-- 使用element的栅格系统 -->
     <el-row>
       <el-col :span="12" :xs="0"></el-col>
       <el-col :span="12" :xs="24">
@@ -37,7 +37,6 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { GET_TOKEN } from '@/utils/token'
 export default defineComponent({
   name: 'Login',
 })
@@ -122,15 +121,15 @@ const login = async () => {
     let redirect: any = $route.query.redirect
 
     // 二选一的跳转
-    // $router.push({ path: '/' })
-    $router.push('/')
+    $router.push({ query: redirect || '/' })
+    // $router.push('/')
     loading.value = false
 
-    // ElNotification({
-    //   title: `HI,${getTime()}好 `,
-    //   message: '登录成功',
-    //   type: 'success',
-    // })
+    ElNotification({
+      title: `HI,${getTime()}好 `,
+      message: '登录成功',
+      type: 'success',
+    })
   } catch (error) {
     loading.value = false
     ElNotification({

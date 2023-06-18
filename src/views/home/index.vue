@@ -1,15 +1,15 @@
 <template>
   <el-card>
     <div class="box">
-      <img
+      <!-- <img
         class="avatar"
         src="https://img.zcool.cn/community/010a8959717638a8012193a3b02a14.gif"
         alt=""
         srcset=""
-      />
-      <!-- <img class="avatar" :src="userStore.avatar" alt="" srcset="" /> -->
+      /> -->
+      <img class="avatar" :src="userStore.avatar" alt="" srcset="" />
       <div class="bottom">
-        <h3 class="title">{{ getTime() }} 好呀 {{ userStore.username }}</h3>
+        <h3 class="title">{{ getTime() }} 好呀 {{ userStore.name }}</h3>
         <p class="subtitle">{{ setting.title }}</p>
       </div>
     </div>

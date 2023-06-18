@@ -33,15 +33,15 @@
     </template>
   </el-popover>
 
-  <img
+  <!-- <img
     src=" https://img.zcool.cn/community/010a8959717638a8012193a3b02a14.gif"
     style="width: 24px; height: 24px; margin: 0 10px; border-radius: 50%"
-  />
-  <!-- <img :src="avatar" style="width: 24px; height: 24px; margin: 0 10px; border-radius: 50%" /> -->
+  /> -->
+  <img :src="avatar" style="width: 24px; height: 24px; margin: 0 10px; border-radius: 50%" />
   <!-- 下拉菜单 -->
   <el-dropdown>
     <span class="el-dropdown-link">
-      {{ username }}123
+      {{ name }}
       <el-icon class="el-icon--right">
         <arrow-down />
       </el-icon>
@@ -70,7 +70,7 @@ import { useRouter, useRoute } from 'vue-router'
 import useUserStore from '@/store/modules/user'
 const layoutSettingStore = useLayoutSettingStore()
 const userStore = useUserStore()
-const { username, avatar } = userStore
+const { name, avatar } = userStore
 // 获取路由器对象
 const $router = useRouter()
 const $route = useRoute()
@@ -93,11 +93,11 @@ const fullScreen = () => {
 }
 
 // 退出登陆
-const layout = () => {
+const layout = async () => {
   // 需要向服务器发请求[退出登陆接口]
   // 清空用户相关的信息
   // 跳转到登录页
-  userStore.userLayout()
+  await userStore.userLayout()
   $router.push({
     path: '/login',
     query: {

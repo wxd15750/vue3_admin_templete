@@ -32,7 +32,7 @@ router.beforeEach(async (to: any, from: any, next: any) => {
   //获取token,去判断用户登录、还是未登录
   let token = userStore.token
   //获取用户名字
-  let username = userStore.username
+  let username = userStore.name
   //用户登录判断
   if (token) {
     //登录成功,访问login,不能访问,指向首页
