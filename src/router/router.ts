@@ -1,3 +1,6 @@
+import { aclRouter } from './modules/acl'
+import { productRouter } from './modules/product'
+
 // 对外暴露配置路由（常量路由）
 export const constantRoute = [
   // 登录路由
@@ -57,35 +60,7 @@ export const constantRoute = [
       icon: 'Calendar',
     },
     redirect: '/acl_mannger/user',
-    children: [
-      {
-        path: '/acl_mannger/user',
-        component: () => import('@/views/acl/user/index.vue'),
-        meta: {
-          title: '用户管理',
-          hidden: false,
-          icon: 'UserFilled',
-        },
-      },
-      {
-        path: '/acl_mannger/role',
-        component: () => import('@/views/acl/role/index.vue'),
-        meta: {
-          title: '角色管理',
-          hidden: false,
-          icon: 'Calendar',
-        },
-      },
-      {
-        path: '/acl_mannger/menulist',
-        component: () => import('@/views/acl/permission/index.vue'),
-        meta: {
-          title: '菜单管理',
-          hidden: false,
-          icon: 'UserFilled',
-        },
-      },
-    ],
+    children: aclRouter,
   },
   // 商品管理
   {
@@ -97,35 +72,7 @@ export const constantRoute = [
       icon: 'Calendar',
     },
     redirect: '/product/attr',
-    children: [
-      {
-        path: '/product/attr',
-        component: () => import('@/views/product/attr/index.vue'),
-        meta: {
-          title: '商品属性',
-          hidden: false,
-          icon: 'UserFilled',
-        },
-      },
-      {
-        path: '/product/sku',
-        component: () => import('@/views/product/sku/index.vue'),
-        meta: {
-          title: 'SKU管理',
-          hidden: false,
-          icon: 'Calendar',
-        },
-      },
-      {
-        path: '/product/spu',
-        component: () => import('@/views/product/spu/index.vue'),
-        meta: {
-          title: 'SPU管理',
-          hidden: false,
-          icon: 'UserFilled',
-        },
-      },
-    ],
+    children: productRouter,
   },
   // 404路由
   {
