@@ -43,8 +43,6 @@ router.beforeEach(async (to: any, from: any, next: any) => {
     }
   })
 
-  next()
-
   //用户登录判断
   if (token) {
     //登录成功,访问login,不能访问,指向首页
