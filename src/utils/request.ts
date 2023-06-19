@@ -2,6 +2,7 @@
 import axios, { AxiosRequestConfig } from 'axios'
 import { ElMessage } from 'element-plus'
 import { GET_TOKEN } from './token'
+import baseUrl from './env'
 // 引入用户相关的store
 // import useUserStore from '@/store/modules/user'
 
@@ -76,12 +77,14 @@ function removeRequestKey(config: AxiosRequestConfig) {
   }
 }
 
+// 环境的判断
+
 // 第一步：利用axios对象的create方法，去创建axios实例（其他的配置:基础路径、超时时间）
 
 const request = axios.create({
   // 基础路径
   // baseURL: 'https://zzdj.zunzhongdj.cn/',
-  baseURL: import.meta.env.VITE_APP_BASE_API,
+  baseURL: baseUrl,
   // 设置超时时间
   timeout: 5000,
 })
