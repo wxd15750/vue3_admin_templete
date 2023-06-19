@@ -1,12 +1,6 @@
 import request from '@/utils/request'
 import { ResponseData, UserInfoType, loginType } from './type'
-
-// 接口地址
-enum userAPI {
-  USER_INFO = '/admin/acl/index/info',
-  LOGIN_API = '/admin/acl/index/login',
-  LOGOUT_API = '/admin/acl/index/logout',
-}
+import { userAPI } from '../apiAdress/userApi'
 
 // 获取用户信息
 

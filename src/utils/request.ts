@@ -2,7 +2,7 @@
 import axios, { AxiosRequestConfig } from 'axios'
 import { ElMessage } from 'element-plus'
 import { GET_TOKEN } from './token'
-import baseUrl from './env'
+import env from '@/setting/env'
 // 引入用户相关的store
 // import useUserStore from '@/store/modules/user'
 
@@ -84,9 +84,9 @@ function removeRequestKey(config: AxiosRequestConfig) {
 const request = axios.create({
   // 基础路径
   // baseURL: 'https://zzdj.zunzhongdj.cn/',
-  baseURL: baseUrl,
+  baseURL: env.baseUrl,
   // 设置超时时间
-  timeout: 5000,
+  timeout: env.timer,
 })
 
 // 第二步：给request实例添加请求拦截器
