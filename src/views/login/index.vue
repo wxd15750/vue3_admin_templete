@@ -58,7 +58,7 @@ const userStore = useUserStore()
 // const username = ref('')
 // const password = ref('')
 // 第二种：通过reactive去定义数据
-const loginFrom = reactive({ username: '', password: '' })
+const loginFrom = reactive({ username: 'admin', password: '111111' })
 // loadin效果
 const loading = ref(false)
 // 获取路由器
