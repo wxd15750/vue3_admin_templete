@@ -6,7 +6,11 @@
         <Top></Top>
       </div>
       <div class="bottom">
-        <div class="left">左侧</div>
+        <div class="left">
+          <Tourist class="tourist"></Tourist>
+          <Sex class="sex"></Sex>
+          <Age class="age"></Age>
+        </div>
         <div class="center">中间</div>
         <div class="right">右侧</div>
       </div>
@@ -23,6 +27,10 @@ export default defineComponent({
 import { ref, onMounted } from 'vue'
 // 导入顶部组件
 import Top from './components/top/index.vue'
+// 引入左侧相关的租金按
+import Tourist from './components/tourist/index.vue'
+import Sex from './components/sex/index.vue'
+import Age from './components/age/index.vue'
 
 // 获取数据大屏展示内容盒子的DOM元素
 let screen = ref()
@@ -64,6 +72,18 @@ window.onresize = () => {
       display: flex;
       .left {
         flex: 1;
+        height: 1040px;
+        display: flex;
+        flex-direction: column;
+        .tourist {
+          flex: 1.5;
+        }
+        .sex {
+          flex: 1;
+        }
+        .age {
+          flex: 1;
+        }
       }
       .right {
         flex: 1;
