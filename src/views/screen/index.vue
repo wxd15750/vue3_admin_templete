@@ -76,7 +76,7 @@ window.onresize = () => {
         display: flex;
         flex-direction: column;
         .tourist {
-          flex: 1.5;
+          flex: 1.2;
         }
         .sex {
           flex: 1;
