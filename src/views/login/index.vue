@@ -121,15 +121,15 @@ const login = async () => {
     let redirect: any = $route.query.redirect
 
     // 二选一的跳转
-    $router.push({ query: redirect || '/' })
+    $router.push({ path: redirect || '/' })
     // $router.push('/')
-    loading.value = false
 
     ElNotification({
       title: `HI,${getTime()}好 `,
       message: '登录成功',
       type: 'success',
     })
+    loading.value = false
   } catch (error) {
     loading.value = false
     ElNotification({
