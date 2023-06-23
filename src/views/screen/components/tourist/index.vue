@@ -6,6 +6,7 @@
       <p class="right">
         可预约总量
         <span>99999</span>
+        人
       </p>
     </div>
 
@@ -41,7 +42,7 @@ onMounted(() => {
   mycharts.setOption({
     // 标题组件
     title: {
-      text: '水球图',
+      // text: '水球图',
     },
     // x轴组件
     xAxis: {},
