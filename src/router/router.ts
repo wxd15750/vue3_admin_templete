@@ -1,5 +1,9 @@
 import { aclRouter } from './modules/acl'
 import { productRouter } from './modules/product'
+import app from '@/lang/app'
+import products from '@/lang/product'
+import acl from '@/lang/acl'
+import { screens } from '@/lang/screens'
 
 // 对外暴露配置路由（常量路由）
 export const constantRoute = [
@@ -32,7 +36,7 @@ export const constantRoute = [
         path: '/home',
         component: () => import('@/views/home/index.vue'),
         meta: {
-          title: '首页',
+          title: app.dashoboard,
           hidden: false,
           icon: 'User',
         },
@@ -45,7 +49,7 @@ export const constantRoute = [
     component: () => import('@/views/screen/index.vue'),
     name: 'Screen',
     meta: {
-      title: '数据可视化大屏',
+      title: screens.title,
       hidden: false,
       icon: 'Platform',
     },
@@ -55,7 +59,7 @@ export const constantRoute = [
     path: '/acl_mannger',
     component: () => import('@/layout/index.vue'),
     meta: {
-      title: '权限管理',
+      title: acl.title,
       hidden: false,
       icon: 'Calendar',
     },
@@ -67,7 +71,7 @@ export const constantRoute = [
     path: '/product',
     component: () => import('@/layout/index.vue'),
     meta: {
-      title: '商品管理',
+      title: products.title,
       hidden: false,
       icon: 'Calendar',
     },

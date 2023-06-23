@@ -1,3 +1,5 @@
+import products from '@/lang/product'
+
 // 商品相关的路由前缀
 const product = '/product'
 export const productRouter = [
@@ -5,7 +7,7 @@ export const productRouter = [
     path: `${product}/attr`,
     component: () => import('@/views/product/attr/index.vue'),
     meta: {
-      title: '商品属性',
+      title: products.attr,
       hidden: false,
       icon: 'UserFilled',
     },
@@ -14,7 +16,7 @@ export const productRouter = [
     path: `${product}/sku`,
     component: () => import('@/views/product/sku/index.vue'),
     meta: {
-      title: 'SKU管理',
+      title: products.sku,
       hidden: false,
       icon: 'Calendar',
     },
@@ -23,7 +25,7 @@ export const productRouter = [
     path: `${product}/spu`,
     component: () => import('@/views/product/spu/index.vue'),
     meta: {
-      title: 'SPU管理',
+      title: products.spu,
       hidden: false,
       icon: 'UserFilled',
     },
@@ -32,7 +34,7 @@ export const productRouter = [
     path: `${product}/pro`,
     component: () => import('@/views/product/attr/index.vue'),
     meta: {
-      title: '产品属性',
+      title: products.attr,
       hidden: false,
       icon: 'UserFilled',
     },
