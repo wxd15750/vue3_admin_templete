@@ -84,9 +84,9 @@ window.onresize = () => {
     }
     .bottom {
       display: flex;
+      justify-content: space-between;
       .left {
         flex: 1;
-        height: 1040px;
         display: flex;
         flex-direction: column;
         .tourist {
@@ -105,7 +105,7 @@ window.onresize = () => {
         flex-direction: column;
         margin-left: 20px;
         .rank {
-          flex: 1.5;
+          flex: 1.2;
         }
         .showdata {
           flex: 1;
