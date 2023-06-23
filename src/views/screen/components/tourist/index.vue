@@ -47,7 +47,12 @@ onMounted(() => {
     // x轴组件
     xAxis: {},
     // y轴组价
-    yAxis: {},
+    yAxis: {
+      // 轴线设置
+      axisLine: {
+        show: false,
+      },
+    },
     // 系列：决定展示什么样的图形图标
     series: {
       type: 'liquidFill',

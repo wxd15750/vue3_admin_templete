@@ -226,7 +226,4 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-.maps {
-}
-</style>
+<style lang="scss" scoped></style>

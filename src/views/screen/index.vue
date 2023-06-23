@@ -15,7 +15,11 @@
           <Map class="map"></Map>
           <Line class="line"></Line>
         </div>
-        <div class="right">右侧</div>
+        <div class="right">
+          <Rank class="rank"></Rank>
+          <ShowData class="showdata"></ShowData>
+          <Count class="count"></Count>
+        </div>
       </div>
     </div>
   </div>
@@ -37,6 +41,10 @@ import Age from './components/age/index.vue'
 // 引入中间的两个子组件
 import Map from './components/map/index.vue'
 import Line from './components/line/index.vue'
+// 引入右边相关的组件
+import Rank from './components/rank/index.vue'
+import ShowData from './components/showdata/index.vue'
+import Count from './components/counter/index.vue'
 
 // 获取数据大屏展示内容盒子的DOM元素
 let screen = ref()
@@ -93,6 +101,18 @@ window.onresize = () => {
       }
       .right {
         flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+        .rank {
+          flex: 1.5;
+        }
+        .showdata {
+          flex: 1;
+        }
+        .count {
+          flex: 1;
+        }
       }
       .center {
         flex: 2;
