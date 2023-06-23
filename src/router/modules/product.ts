@@ -31,10 +31,10 @@ export const productRouter = [
     },
   },
   {
-    path: `${product}/pro`,
+    path: `${product}/produ`,
     component: () => import('@/views/product/attr/index.vue'),
     meta: {
-      title: products.attr,
+      title: products.produ,
       hidden: false,
       icon: 'UserFilled',
     },

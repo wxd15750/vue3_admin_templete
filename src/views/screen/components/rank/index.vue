@@ -102,8 +102,8 @@ onMounted(() => {
       },
     ],
     tooltip: {
-      backgroundColor: 'rgba(255,255,255,.3)',
-      borderColor: 'rgba(255,255,255,.3)',
+      backgroundColor: 'rgba(255,255,255,.8)',
+      borderColor: 'rgba(255,255,255,.6)',
     },
   })
 })

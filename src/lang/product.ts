@@ -3,5 +3,6 @@ const products = {
   attr: '商品属性',
   spu: 'SPU管理',
   sku: 'SKU管理',
+  produ: '品牌管理',
 }
 export default products
