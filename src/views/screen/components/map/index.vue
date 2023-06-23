@@ -14,7 +14,7 @@ import * as echarts from 'echarts'
 import chinaJson from './china.json'
 let map = ref()
 // 先注册中国地图
-echarts.registerMap('china', chinaJson)
+echarts.registerMap('china', chinaJson as any)
 onMounted(() => {
   let mymap = echarts.init(map.value)
   // 设置配置项
@@ -23,7 +23,7 @@ onMounted(() => {
     geo: {
       map: 'china', // 中国地图
       // roam: true, // 鼠标缩放的效果
-      left: 100,
+      left: 80,
       top: 120,
       right: 40,
       bottom: -160,
