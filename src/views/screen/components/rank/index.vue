@@ -1,7 +1,7 @@
 <template>
   <div class="rank">
     <div class="title">
-      <p>热门景区排行</p>
+      <p>热门景区</p>
       <img src="../../images/dataScreen-title.png" alt="" />
     </div>
     <!-- 图形图标容器 -->

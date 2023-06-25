@@ -145,7 +145,7 @@ const login = async () => {
 .login_container {
   width: 100%;
   height: 100vh;
-  background: url('@/assets/images/background.jpg') no-repeat;
+  background: url('@/assets/images/bg2.jpg') no-repeat;
   background-size: cover;
   .login_form {
     position: relative;

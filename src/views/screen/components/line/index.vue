@@ -1,7 +1,7 @@
 <template>
   <div class="lineContainer">
     <div class="title">
-      <p>未来七天游客量趋势图</p>
+      <p>未来一周游客数量趋势图</p>
       <img src="../../images/dataScreen-title.png" alt="" />
     </div>
     <div class="charts" ref="line"></div>

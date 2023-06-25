@@ -1,7 +1,7 @@
 <template>
   <div class="box2">
     <div class="title">
-      <p>年龄比例</p>
+      <p>年龄占比</p>
       <img src="../../images/dataScreen-title.png" alt="" />
     </div>
     <div class="charts" ref="charts"></div>

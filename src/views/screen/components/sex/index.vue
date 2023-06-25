@@ -1,7 +1,7 @@
 <template>
   <div class="box1">
     <div class="title">
-      <p>男女比例</p>
+      <p>男女占例</p>
       <img src="../../images/dataScreen-title.png" alt="" />
     </div>
     <div class="sex">

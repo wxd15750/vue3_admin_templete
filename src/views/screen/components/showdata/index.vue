@@ -1,7 +1,7 @@
 <template>
   <div class="showDatacontainer">
     <div class="title">
-      <p>年度游客量对比</p>
+      <p>年度游客对比</p>
       <img src="../../images/dataScreen-title.png" alt="" />
     </div>
     <!-- 图形图标容器 -->
@@ -77,7 +77,7 @@ onMounted(() => {
   .title {
     p {
       color: #fff;
-      font-size: 16px;
+      font-size: 18px;
     }
   }
   .charts {

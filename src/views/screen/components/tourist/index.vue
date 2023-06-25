@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="top">
-      <p class="title">实时游客统计</p>
+      <p class="title">实时游客数量</p>
       <p class="bg"></p>
       <p class="right">
         可预约总量
